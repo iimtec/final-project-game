@@ -2,7 +2,8 @@
 
 ## Project Description
 
-Maze Runner is a 2D dungeon-style maze escape game where players navigate through procedurally generated mazes while avoiding intelligent enemies. The game features progressive difficulty across 5 levels, collectible hint items, teleportation portals, and a comprehensive statistics tracking system. Players must locate and reach the escape portal on each level to progress, with the ultimate goal of escaping the final maze while managing limited visibility and enemy encounters.
+Horror Maze Escape is a 2D horror-style maze escape game where players navigate through procedurally generated mazes while avoiding intelligent enemies. The game features progressive difficulty levels, collectible hint items, teleportation portals, and a comprehensive statistics system. Players must find the escape portal on each level to progress, with the ultimate goal of reaching level 5 and escaping the final maze.
+
 
 ---
 
@@ -62,7 +63,7 @@ python3 main.py
 
 ### **Gameplay Basics:**
 - **Objective:** Find the yellow escape portal and reach it to complete the level
-- **Enemies:** Killer avatar represent enemies that will chase you if detected
+- **Enemies:** Killer avatar represent enemies that will chase you if detected (range 200 pixels)
 - **Fog of War:** Your visibility is limited to a circular radius around your character
 - **Hint Items:** Purple diamond shapes reveal the direction to the escape door
 - **Portals:** Cyan circles teleport you to random locations in the maze
@@ -89,14 +90,14 @@ python3 main.py
 
 ## Game Features
 
-- **Procedurally Generated Mazes:** Unique, randomized maze layouts on each level created using recursive backtracking algorithm
+- **Procedurally Generated Mazes:** Unique, randomized maze layouts on each level created using depth-first search algorithm
 - **5-Level Progression System:** Progressively challenging levels with increasing difficulty
 - **Intelligent Enemy AI:** Multiple enemies with chase mechanics, detection ranges, and autonomous pathfinding
 - **Fog of War System:** Dynamic visibility radius that decreases as you progress through levels
 - **Teleportation Portals:** Random portals that transport players to different maze locations
 - **Hint Items:** Collectible items that show directional arrows pointing to the escape portal
 - **Sprite-Based Animation:** Smooth directional animations for player and enemy movement
-- **Visual Effects:** Screen shake on enemy encounters, floating text feedback, glowing portal effects, pulsing animations
+- **Visual Effects:** Screen shake on enemy encounters, floating text feedback and glowing portal effects
 - **Sound Effects:** Audio cues for heartbeat, teleportation, and game-over sound effect
 - **Statistics Tracking:** Comprehensive game data recording including steps, time, enemies encountered, score and result
 - **Statistics Visualization:** Interactive charts and graphs displaying performance metrics

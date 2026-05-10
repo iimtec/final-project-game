@@ -12,9 +12,9 @@ Horror Maze Escape is a 2D horror-style maze escape game where players navigate 
 This project aims to create an engaging maze-based game that combines exploration, strategy, and survival mechanics. Players face the challenge of navigating complex mazes while avoiding enemy encounters, managing limited visibility, and collecting hint items to guide their escape route.
 
 ### **Target Users:**
-- Casual gamers seeking puzzle and exploration challenges
+- Casual gamers who loves puzzle and exploration challenges
 - Indie game enthusiasts
-- Players interested in maze-based gameplay mechanics
+- Players interested in maze-based gameplay
 - Users who enjoy progressive difficulty systems and statistics tracking
 
 ### **Key Features:**
@@ -176,7 +176,6 @@ The data is appended to the CSV file, creating a chronological history of all ga
 - Choosing between data: steps, time, enemies, score, result
 - Choosing between bar or line graph for each data
 - Statistics summary displaying averages, min and max
-- Performance metrics for steps, time, and score per level
 - Interactive statistics screen accessible during gameplay with 'Z' key or access at main menu using 'view stats' button
 
 **Data Usage:**
@@ -212,6 +211,4 @@ The data is appended to the CSV file, creating a chronological history of all ga
 - Teleport sound effect (Teleport portal): https://youtu.be/7ORuFBPthWQ?si=HDnBjlzZOHWQHVTL
 - Escape portal sound effect (Escape portal): https://www.youtube.com/watch?v=rr5CMS2GtCY
 ---
-
-- **Project Submission Date:** May 2026
 - **Developer:** Techasit Suchatsunthon
