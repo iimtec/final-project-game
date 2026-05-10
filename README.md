@@ -13,6 +13,7 @@ To clone this project:
 
 ```sh
 git clone https://github.com/iimtec/final-project-game.git
+cd final-project-game
 ```
 
 To create and run Python Environment for this project:
