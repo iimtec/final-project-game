@@ -75,49 +75,49 @@ class GlowEffect:
         self.timer = 0
 
 
-class ShadowEffect:
-    """Creates a drop shadow effect."""
-    @staticmethod
-    def draw_shadow(surface, x, y, width, height, offset_x=3, offset_y=3, 
-                   color=(0, 0, 0), alpha=100):
-        shadow_surface = pygame.Surface((width, height), pygame.SRCALPHA)
-        shadow_surface.fill((color[0], color[1], color[2], alpha))
-        surface.blit(shadow_surface, (x + offset_x, y + offset_y))
+# class ShadowEffect:
+#     """Creates a drop shadow effect."""
+#     @staticmethod
+#     def draw_shadow(surface, x, y, width, height, offset_x=3, offset_y=3, 
+#                    color=(0, 0, 0), alpha=100):
+#         shadow_surface = pygame.Surface((width, height), pygame.SRCALPHA)
+#         shadow_surface.fill((color[0], color[1], color[2], alpha))
+#         surface.blit(shadow_surface, (x + offset_x, y + offset_y))
 
 
-class LightEffect:
-    """Creates a dynamic light/illumination effect."""
-    def __init__(self, x, y, radius, color=(255, 255, 255), intensity=200):
-        self.x = x
-        self.y = y
-        self.radius = radius
-        self.color = color
-        self.intensity = intensity
-        self.flicker_timer = 0
-        self.flicker = False
+# class LightEffect:
+#     """Creates a dynamic light/illumination effect."""
+#     def __init__(self, x, y, radius, color=(255, 255, 255), intensity=200):
+#         self.x = x
+#         self.y = y
+#         self.radius = radius
+#         self.color = color
+#         self.intensity = intensity
+#         self.flicker_timer = 0
+#         self.flicker = False
     
-    def update(self, new_x, new_y):
-        self.x = new_x
-        self.y = new_y
-        self.flicker_timer += 1
-        if self.flicker_timer % 15 == 0:
-            self.flicker = random.random() > 0.7
+#     def update(self, new_x, new_y):
+#         self.x = new_x
+#         self.y = new_y
+#         self.flicker_timer += 1
+#         if self.flicker_timer % 15 == 0:
+#             self.flicker = random.random() > 0.7
     
-    def draw(self, surface, offset_x=0, offset_y=0):
-        if not self.flicker or random.random() > 0.3:
-            draw_x = int(self.x + offset_x)
-            draw_y = int(self.y + offset_y)
+#     def draw(self, surface, offset_x=0, offset_y=0):
+#         if not self.flicker or random.random() > 0.3:
+#             draw_x = int(self.x + offset_x)
+#             draw_y = int(self.y + offset_y)
             
-            # Draw multiple circles for a soft glow
-            for i in range(3):
-                radius = self.radius - (i * self.radius // 3)
-                alpha = int(self.intensity * (1 - i / 3) * 0.6)
-                glow_surface = pygame.Surface((radius * 2, radius * 2), pygame.SRCALPHA)
-                pygame.draw.circle(glow_surface, 
-                                 (*self.color, alpha),
-                                 (radius, radius), radius)
-                surface.blit(glow_surface, 
-                           (draw_x - radius, draw_y - radius))
+#             # Draw multiple circles for a soft glow
+#             for i in range(3):
+#                 radius = self.radius - (i * self.radius // 3)
+#                 alpha = int(self.intensity * (1 - i / 3) * 0.6)
+#                 glow_surface = pygame.Surface((radius * 2, radius * 2), pygame.SRCALPHA)
+#                 pygame.draw.circle(glow_surface, 
+#                                  (*self.color, alpha),
+#                                  (radius, radius), radius)
+#                 surface.blit(glow_surface, 
+#                            (draw_x - radius, draw_y - radius))
 
 
 class ScreenShake:
@@ -129,6 +129,11 @@ class ScreenShake:
     def start(self, intensity=5, duration=10):
         self.intensity = intensity
         self.duration = duration
+    
+    def stop(self):
+        """Immediately stop the screen shake effect."""
+        self.intensity = 0
+        self.duration = 0
     
     def update(self):
         if self.duration > 0:

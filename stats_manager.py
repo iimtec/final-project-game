@@ -8,6 +8,19 @@ class StatsManager:
         self.records = []
         self.csv_file = 'game_stats.csv'
         self.ensure_csv_exists()
+        self.load_last_game_id()  # Load the last Game_ID from CSV
+
+    def load_last_game_id(self):
+        """Load the highest Game_ID from the CSV file to ensure continuous numbering."""
+        try:
+            with open(self.csv_file, 'r', newline='') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    if row['Game_ID']:
+                        self.game_id = max(self.game_id, int(row['Game_ID']))
+        except Exception as e:
+            print(f"Error loading last game ID: {e}")
+            self.game_id = 0
 
     def ensure_csv_exists(self):
         if not os.path.exists(self.csv_file):

@@ -62,6 +62,38 @@ class Portal:
             and player_top < portal_bottom
         )
 
-    def teleport_player(self, player):
-        """Teleport player to random location"""
+    def teleport_player(self, player, portals_to_avoid=None, escape_door=None):
+        """Teleport player to random location away from other portals"""
+        min_distance = TILE_SIZE * 5  # Keep teleported player away from other portals
+        
+        # Keep trying to find a position far from other portals
+        for attempt in range(100):
+            new_x, new_y = self.find_random_valid_position(min_distance=0)
+            
+            # Check distance from all portals to avoid
+            too_close = False
+            if portals_to_avoid:
+                for other_portal in portals_to_avoid:
+                    if other_portal is not self:
+                        dx = new_x - other_portal.x
+                        dy = new_y - other_portal.y
+                        distance = math.hypot(dx, dy)
+                        if distance < min_distance:
+                            too_close = True
+                            break
+            
+            # Also check escape door
+            if not too_close and escape_door:
+                dx = new_x - escape_door.x
+                dy = new_y - escape_door.y
+                distance = math.hypot(dx, dy)
+                if distance < min_distance:
+                    too_close = True
+            
+            # If position is valid, use it
+            if not too_close:
+                player.x, player.y = new_x, new_y
+                return
+        
+        # Fallback: just teleport to any valid position
         player.x, player.y = self.find_random_valid_position()

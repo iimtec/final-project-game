@@ -109,6 +109,10 @@ class StatsVisualizer:
             print(f"Error loading data: {e}")
         return data
 
+    def refresh_data(self):
+        """Reload the game statistics data from CSV file."""
+        self.data = self.load_data()
+
     def handle_click(self, mouse_x, mouse_y):
         """Handle menu button clicks (tab + chart type)."""
         for tab, rect in self.menu_buttons.items():
@@ -186,7 +190,7 @@ class StatsVisualizer:
             if value == 0:
                 grid_color = (100, 120, 150)
                 thickness = 2
-            elif len(ticks) > 1 and value % (ticks[1] * 2) == 0:
+            elif len(ticks) > 1 and ticks[1] != 0 and value % (ticks[1] * 2) == 0:
                 grid_color = (90, 105, 130)
                 thickness = 2
             else:
